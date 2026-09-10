@@ -1,0 +1,20 @@
+MARCUS CHEN
+Full-Stack Developer
+
+CONTACT
+hello@marcuschen.dev
+https://github.com/marcuschen
+
+PROFILE
+Full-stack developer focused on building fast, useful, resilient digital products.
+
+CORE STACK
+TypeScript · React · Next.js · Node.js · PostgreSQL · AWS · Docker · Testing / CI
+
+SELECTED WORK
+Pulseboard — real-time observability workspace
+Local First — offline-capable knowledge base
+Tide API — resilient API toolkit with observability
+
+OPEN SOURCE
+8.4k GitHub stars accumulated · 19 contributors · 12 active repositories
