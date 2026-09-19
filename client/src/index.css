@@ -56,3 +56,5 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 480px) { .hero-copy h1 { font-size: 52px; }.hero-copy .button { width: 100%; }.play-link { width: 100%; }.blog-card { display: block; }.blog-photo { height: 190px; min-height: 0; }.footer-main { grid-template-columns: 1fr; }.footer-contact { grid-column: auto; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
 @layer base { * { @apply border-border outline-ring/50; } body { @apply bg-background text-foreground; } }
+
+.form-error { color: var(--primary) !important; font-weight: 700; }
