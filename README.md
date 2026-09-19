@@ -19,7 +19,7 @@ pnpm build
 
 ## Vercel
 
-El frontend se publica desde `dist/public` y el API tRPC se ejecuta como función serverless desde `api/index.ts`. Configura estas variables en el proyecto de Vercel:
+El frontend se publica desde `dist/public` y el API tRPC se ejecuta dentro del handler Express serverless de `index.ts`. Configura estas variables en el proyecto de Vercel:
 
 - `AIRTABLE_PAT`: Personal Access Token con acceso de lectura/escritura a la base. Es la única variable obligatoria para recibir formularios.
 - `DATABASE_URL`: conexión MySQL/TiDB opcional para mantener una réplica SQL de reportes.
