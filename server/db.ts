@@ -48,8 +48,13 @@ export async function getUserByOpenId(openId: string) {
 
 export async function createInquiry(input: InsertInquiry) {
   const db = await getDb();
-  if (!db) throw new Error("Database is not available");
-  return db.insert(inquiries).values(input);
+  if (!db) {
+    console.warn("[Database] DATABASE_URL not configured; Airtable remains the source of truth");
+    return false;
+  }
+  
+  await db.insert(inquiries).values(input);
+  return true;
 }
 
 export async function listInquiries() {
