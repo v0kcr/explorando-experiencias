@@ -21,7 +21,6 @@ export async function upsertUser(user: InsertUser): Promise<void> {
   if (!user.openId) throw new Error("User openId is required for upsert");
   const db = await getDb();
   if (!db) throw new Error("Database is not available");
-
   const values: InsertUser = { openId: user.openId };
   const updateSet: Record<string, unknown> = {};
   const textFields = ["name", "email", "loginMethod"] as const;
@@ -50,8 +49,7 @@ export async function getUserByOpenId(openId: string) {
 export async function createInquiry(input: InsertInquiry) {
   const db = await getDb();
   if (!db) throw new Error("Database is not available");
-  const result = await db.insert(inquiries).values(input);
-  return result;
+  return db.insert(inquiries).values(input);
 }
 
 export async function listInquiries() {

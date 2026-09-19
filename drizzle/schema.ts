@@ -14,6 +14,10 @@ export const users = mysqlTable("users", {
 
 export const inquiries = mysqlTable("inquiries", {
   id: int("id").autoincrement().primaryKey(),
+  airtableRecordId: varchar("airtableRecordId", { length: 32 }).notNull().unique(),
+  airtableLastModifiedAt: timestamp("airtableLastModifiedAt"),
+  syncStatus: mysqlEnum("syncStatus", ["synced", "error"]).default("synced").notNull(),
+  syncError: text("syncError"),
   kind: mysqlEnum("kind", ["trip", "corporate", "club", "ebook", "contact"]).notNull(),
   name: varchar("name", { length: 160 }).notNull(),
   email: varchar("email", { length: 320 }).notNull(),

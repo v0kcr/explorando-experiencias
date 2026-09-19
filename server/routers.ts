@@ -3,6 +3,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { adminProcedure, publicProcedure, router } from "./_core/trpc";
+import { createSolicitudInAirtable } from "./airtable";
 import { createInquiry, listInquiries } from "./db";
 
 const inquiryInput = z.object({
@@ -27,7 +28,11 @@ export const appRouter = router({
   }),
   inquiries: router({
     create: publicProcedure.input(inquiryInput).mutation(async ({ input }) => {
+      const airtableRecord = await createSolicitudInAirtable(input);
       await createInquiry({
+        airtableRecordId: airtableRecord.id,
+        airtableLastModifiedAt: airtableRecord.createdTime,
+        syncStatus: "synced",
         kind: input.kind,
         name: input.name,
         email: input.email,
